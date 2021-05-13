@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script>
+
+        class Persona{
+            constructor(){
+                this.FirstArray = [];
+            }
+            agregar(Telefono, Nombre, Edad){
+                let data={
+                    "Telefono":Telefono, 
+                    "Nombre":Nombre, 
+                    "Edad": Edad
+                }
+                this.FirstArray.push(data);
+            }
+            mapeo(){
+                document.writeln("<h1>Uso del metodo Map</h1>");
+                var SecondArray = this.FirstArray.map((Datos)=>
+                     "<br>" + "<br>" + "Celular: " + Datos.Telefono  + "<br>"+ "Nombre: " + Datos.Nombre + "<br>"+ "Edad: "  + Datos.Edad
+                     ); 
+                     this.pintar(SecondArray)
+                    //  console.log(SecondArray);
+                  
+            }
+            pintar(data){
+                document.writeln(data);
+            }
+            set(Telefono,Nombre,Edad){
+                let mySet = new Set();
+                let data={
+                    "Telefono":Telefono, 
+                    "Nombre":Nombre, 
+                    "Edad": Edad
+                }
+            }
+            // filtrar(){
+            //     FirstArray.forEach(element => {
+            //         if(document.getElementById('Box')==FirstArray)
+            //         return element.innerHTML
+            //     });
+            // }
+        }
+
+        var persona = new Persona();
+        // persona.agregar(111,'Alan',10)
+        persona.agregar(666,'Adan',60)
+        // console.log(persona.FirstArray);
+        
+        
+        var FirstArray = [
+            
+            {
+                Telefono : 111  , Nombre : "Alan " , Edad : 10 
+            },
+            {
+                Telefono : 222  , Nombre : "Beto ", Edad : 20 
+            },
+            {
+                Telefono: 333 , Nombre: "Carlos ", Edad : 30 
+            },
+            {
+                Telefono : 444 , Nombre : "David ", Edad : 40 
+            },
+            {
+                Telefono : 555 , Nombre : "Efrain ", Edad : 50 
+            },
+            {
+                Telefono : "555 ", Nombre : "Efrain ", Edad : "50 " 
+            }
+            
+        ]
+        FirstArray.forEach(element => {
+            // console.log(element);
+            persona.agregar(element.Telefono,element.Nombre,element.Edad);
+        });
+        // console.log(persona.FirstArray);
+        persona.mapeo();
+        // var SecondArray = FirstArray.map(function (Datos){
+        //     return(  "<br>" + "<br>" + "Celular: " + Datos.Telefono  + "<br>"+ "Nombre: " + Datos.Nombre + "<br>"+ "Edad: "  + Datos.Edad)     ;
+        // })
+        // console.log(SecondArray);
+        
+        // document.writeln(SecondArray);
+        var print = FirstArray.filter(FirstArray => FirstArray > [0,1,2,3]); 
+        function send(){
+                FirstArray.forEach(element => {
+                    if(document.getElementById('Box').value==FirstArray)
+                    return element.innerHTML
+                });
+            
+            }
+
+        function prueba(){
+            let mySet = new Set();
+            for (let index = 0; index < FirstArray.length; index++) {
+                // console.log(new Set(FirstArray[index].Telefono));
+                mySet.add(FirstArray[index].Telefono)
+                // console.log(FirstArray[index]);
+            }
+            console.log(mySet);
+            
+            console.log(print);
+        }
+        // persona.filtrar();
+        prueba();
+        </script><br><br><br><br>
+        <P>Buscardor: </P>
+<label id="Box" ><input type="text"></label>
+<input type="button" value="Buscar" id="Search" onclick="send()">
+</body>
+</html>
